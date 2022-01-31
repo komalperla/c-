@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    //bitwise and
+    /*
+        1010
+    +   0010
+    =   0010
+        (2)
+        */
+    cout<<(10&2)<<endl;
+    /* bitwise or
+        1010
+    +   0010
+    =   1010
+    (10)*/
+    cout<<(10|2)<<endl;
+    /* bitwise xor
+        1010
+    +   0010
+    =   1000
+    (10)*/
+    cout<<(10^2)<<endl;
+    
+    
+}
