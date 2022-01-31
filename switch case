@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    
+    int x=50;
+    switch(x)
+    {
+        case 0:
+            cout<<"this is execute when x will be zero"<<endl;
+        case 25:
+            cout<<"this is execute when x will be 25"<<endl;
+        case 50:
+            cout<<"this is execute when x will be 50"<<endl;
+        default:
+            cout<<"this is execute when x will not be above case"<<endl;
+            
+    }
+}
