@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+struct personaldata
+{
+    string name;
+    string surname;
+    string telephone_number;
+    short age;
+}a,b;
+int main()
+{
+    personaldata p[5];
+    a.age=40;
+    
+    cout<<a.age<<endl;
+    p[0].name="xyz";
+    p[1].name="pqr";
+    p[0].surname="abc";
+    p[0].telephone_number="7894561232";
+    p[0].age=25;
+    
+    /*cout<<p[0].name<<endl;
+    cout<<p[0].surname<<endl;
+    cout<<p[0].telephone_number<<endl;
+    cout<<p[0].age<<endl;*/
+    
+    cout<<(*p).name<<endl;
+    cout<<(*&p[0]).name<<endl;
+    cout<<(p+1)->name<<endl;
+    
+    personaldata *p1=&p[0];
+    cout<<p1->name<<endl;
+
+    return 0;
+}
