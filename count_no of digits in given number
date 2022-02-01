@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+
+int main(void)
+{
+    int no=1234;
+    int noofdigits=1;
+    int tmp=no;
+    while(tmp/=10)
+        noofdigits++;
+    cout<<" the number "<<no<<" has "<<noofdigits<<" digits "<<endl;
+        
+}
