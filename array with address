@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main(void)
+{
+    int a;
+    int array[4];
+    array[0]=10;
+    array[1]=8;
+    array[2]=5;
+    array[3]=1;
+    cout<<"array[0]="<<array[0]<<",addresse:"<<&array[0]<<endl;
+    cout<<"array[1]="<<array[1]<<",addresse:"<<&array[1]<<endl;
+    cout<<"array[2]="<<array[2]<<",addresse:"<<&array[2]<<endl;
+    cout<<"array[3]="<<array[3]<<",addresse:"<<&array[3]<<endl;
+
+
+}
