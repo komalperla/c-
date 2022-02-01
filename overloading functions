@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+int power(int,int);
+double power(double,double);
+int main()
+{
+    cout<<power(2,3)<<endl;
+    cout<<power(2,3)<<endl;
+
+    return 0;
+}
+int power(int b,int e)
+{
+    int tmp=b;
+    while(e-- > 1)
+        b+=tmp;
+    return b;
+    
+}
+double power(double b,double e)
+{
+    int tmp=b;
+    while(e-- > 1)
+        b+=tmp;
+    return b;
+    
+}
