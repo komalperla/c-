@@ -1,0 +1,88 @@
+#include <iostream>
+
+using namespace std;
+void initmenu();
+void menudecision(int);
+double areacircle(double);
+const double pi=3.14;
+double areasquare(double);
+double arearectangle(double,double);
+double areatriangle(double ,double);
+
+int main()
+{
+    int choice;
+    char cont;
+    do
+    {
+        system("cls");
+        initmenu();
+        cin>>choice;
+        menudecision(choice);
+        cout<<"do you want to continue the program?(y/n)"<<endl;
+        cin>>cont;
+    }while(cont=='y'||cont=='Y');
+    return 0;
+}
+void initmenu()
+{
+    cout<<"enter option:"<<endl;
+        cout<<"1.circle:"<<endl;
+    cout<<"2.square:"<<endl;
+    cout<<"3.rectangle:"<<endl;
+    cout<<"4.triangle:"<<endl;
+
+}
+void menudecision(int choice)
+{
+    double r,a,b,h;
+    switch(choice)
+    {
+        case 1:
+            cout<<"enter the radius:"<<endl;
+            cin>>r;
+            areacircle(r);
+            break;
+        case 2:
+            cout<<"enter the side of square:"<<endl;
+            cin>>a;
+            areasquare(a);
+            break;
+        case 3:
+            cout<<"enter the width and height of rectangle:"<<endl;
+            cin>>a>>b;
+            arearectangle(a,b);
+            break;
+        case 4:
+            cout<<"enter the height of triangle:"<<endl;
+            cin>>a>>h;
+            areatriangle(a,h);
+            break;
+        default:
+            cout<<"you didn't choice any of the option from abouve"<<endl;
+    }
+}
+double areacircle(double r)
+{
+    double result=pi*r*r;
+    cout<<"the area of circle that radius is "<<r<<"="<<result<<endl;
+    return result;
+}
+double areasquare(double a)
+{
+    double result=a*a;
+    cout<<"the area of square that side is "<<a<<"="<<result<<endl;
+    return result;
+}
+double arearectangle(double a,double b)
+{
+    double result=a*b;
+    cout<<"the area of rectangle that first side is "<<a<<"and second side is"<<b<<"="<<result<<endl;
+    return result;
+}
+double areatriangle(double a,double h)
+{
+    double result=(1/2.0)*a*h;
+    cout<<"the area of triangle that base is "<<a<<"and height is "<<h<<"="<<result<<endl;
+    return result;
+}
