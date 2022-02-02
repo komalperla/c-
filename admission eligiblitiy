@@ -1,0 +1,44 @@
+#include <iostream>
+
+using namespace std;
+
+double eligibility_ForAdmission(int a,int b,int c) 
+{
+        double total=a+b+c;
+        if(a<60||b<60||c<60||total>180)
+        {
+            throw"Not eligible for Admission";
+            
+        }
+        else
+        {
+            return total;
+        }
+}
+
+int main()
+{
+    int phy,che,math;
+    cout<<"Enter the Physics Marks:"<<endl;
+    cin>>phy;
+    cout<<"Enter the Chemistry Marks"<<endl;
+    cin>>che;
+    cout<<"Enter the Maths Marks"<<endl;
+    cin>>math;
+    eligibility_ForAdmission(phy,che,math);
+    
+    try
+   {
+        //Implement your code here
+       double TotalMark=
+       eligibility_ForAdmission(phy,che,math);
+       
+cout<<"Total score is "<<TotalMark;
+    
+    } catch(const char*msg)
+    {
+        cerr<<msg<<endl;
+    }
+
+   
+}
