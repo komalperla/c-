@@ -1,0 +1,101 @@
+#include <iostream>
+#include <exception>
+
+
+using namespace std;
+class ExceptionHandler : public exception
+{  
+    public:  
+        const char * what() const throw()  
+        {  
+            return "Invalid Customer Name\nProvide a proper Customer Name\n";  
+        }  
+};  
+class CustomerDetails 
+{
+	private:
+	string customerId;
+	string customerName;
+	long int phoneNumber;
+	string emailId;
+	string toyType;
+	double price;
+	public:
+	CustomerDetails() 
+	{
+		
+	}
+	CustomerDetails(string customerId, string customerName, long int phoneNumber, string emailId, string toyType,double price) 
+	{
+		this->customerId = customerId;
+		this->customerName = customerName;
+		this->phoneNumber = phoneNumber;
+		this->emailId = emailId;
+		this->toyType = toyType;
+		this->price = price;
+	}
+	void validateCustomerName() 
+	{	 	  	    	    		        	 	
+    		for(int i = 0; i < customerName.length(); i++)
+    	    {
+        		if(!((customerName[i]>='a' && customerName[i]<='z') || (customerName[i]>='A' && customerName[i]<='Z')))  
+        		{
+        		  //  cout<<customerName[i];
+        			ExceptionHandler obj;
+                    throw obj;
+        			break;
+        		}
+    		}
+	}
+	double calculateDiscount() 
+	{
+		double amount=0.0;
+		if(toyType=="softToys")
+			amount=price-(price*0.05);
+		else if(toyType=="fidgetToys")
+			amount=price-(price*0.10);
+		else if(toyType=="sensoryToys")
+			amount=price-(price*0.15);
+		else if(toyType=="puzzles")
+			amount=price-(price*0.20);
+		return amount;
+	}
+     ~CustomerDetails() 
+	{
+		cout<<"CustomerDetails Object is destroyed"<<endl;
+	}
+};
+int main()
+{
+        string id,name,email,type;
+        long int phone;
+        double price,amount;
+        cout<<"Enter Customer Id"<<endl;
+		cin>>id;
+		cout<<"Enter Customer Name"<<endl;
+		cin>>name;
+		cout<<"Enter Phone Number"<<endl;
+		cin>>phone;
+		cout<<"Enter Email Id"<<endl;
+		cin>>email;
+		cout<<"Enter type"<<endl;
+		cin>>type;
+		cout<<"Enter Price"<<endl;
+		cin>>price;
+		
+		CustomerDetails *c=new CustomerDetails(id,name,phone,email,type,price);
+		try
+		{	 	  	    	    		        	 	
+    		c->validateCustomerName(); 
+    		amount=c->calculateDiscount();
+        	cout<<"Amount to be paid by the Customer "<<amount<<endl;
+    		
+		}
+		catch(exception& e)  
+        {  
+            cout << e.what();  
+        } 
+        
+        delete c;
+    return 0;
+}
