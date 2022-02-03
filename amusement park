@@ -1,0 +1,39 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+
+int calculateTicketPrice(int price,int noOfAdults)
+{
+    return price*noOfAdults;
+    
+}
+int calculateTicketPrice(int price,int noOfAdults,int noOfKids)
+{
+    return price*noOfAdults+price*noOfKids*0.5;
+}
+int calculateTicketPrice(int price,int noOfAdults,bool camera)
+{
+    if(camera==1)
+    {
+        return price*noOfAdults+100;
+    }
+    else
+    {
+        return price*noOfAdults;
+    }
+}
+int calculateTicketPrice(int noOfStudents)
+{
+    return 100*noOfStudents;
+}
+int main()   //DO NOT change the 'main' signature
+{
+    //Fill code here
+    
+    cout<<calculateTicketPrice(1000,3)<<endl;
+    cout<<calculateTicketPrice(1000,3,2)<<endl;
+    cout<<calculateTicketPrice(1000,3,true)<<endl;
+    cout<<calculateTicketPrice(10);
+    return 0;
+}
