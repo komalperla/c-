@@ -1,0 +1,147 @@
+#include <iostream>
+#include <string.h>
+//#include <conio.h>
+#include <cstdio>
+#include <cstdlib>
+using namespace std;
+
+class Endowment 
+{
+	private:
+	    string endowmentId;
+	    string holderName;
+	    string endowmentType;
+        string registrationDate;
+	public:
+	virtual double calculateEndowment()=0;
+	
+	string getEndowmentId(){
+        return endowmentId;
+    }
+    
+	Endowment(){}
+	Endowment(string endowmentId, string holderName, string endowmentType, string registrationDate) 
+	{
+		this->endowmentId = endowmentId;
+		this->holderName = holderName;
+		this->endowmentType = endowmentType;
+		this->registrationDate = registrationDate;
+	}
+	
+};
+class HealthEndowment : public Endowment
+{
+	private:
+		string healthCareCenter;
+		int holderAge;
+	public:
+		string getHealthCareCenter(){	 	  	    	    		        	 	
+        		return healthCareCenter;
+    		}
+    		void setHealthCareCenter(string healthCareCenter){
+        		this->healthCareCenter = healthCareCenter;
+    		}
+    		int getHolderAge(){
+        		return holderAge;
+    		}
+    		void setHolderAge(int holderAge){
+        		this->holderAge = holderAge;
+    		}
+    
+    		HealthEndowment(){}
+		HealthEndowment(string endowmentId, string holderName, string endowmentType, string registrationDate, string healthCareCenter, int holderAge) 		:Endowment(endowmentId, holderName, endowmentType, registrationDate)
+		{
+			this->healthCareCenter = healthCareCenter;
+			this->holderAge = holderAge;
+		}
+		double calculateEndowment()
+		{
+			double amount=0;
+			if(holderAge<=30)
+				amount=120000;
+			else if(holderAge>30 && holderAge<60)
+				amount=200000;
+			else if(holderAge>=60)
+				amount=500000;
+		
+			return amount;
+		}
+};
+
+class EducationalEndowment : public Endowment
+{
+	private:
+		string educationalInstitution;
+		string educationalDivision;
+	
+	public:
+		string getEducationalInstitution(){	 	  	    	    		        	 	
+        		return educationalInstitution;
+    		}
+    		void setEducationalInstitution(string educationalInstitution){
+        		this->educationalInstitution = educationalInstitution;
+    		}
+    		string getEducationalDivision(){
+        		return educationalDivision;
+    		}
+    		void setEducationalDivision(string educationalDivision){
+        		this->educationalDivision = educationalDivision;
+    		}
+    
+    EducationalEndowment(){}
+	EducationalEndowment(string endowmentId, string holderName, string endowmentType, string registrationDate,string educationalInstitution, string educationalDivision):Endowment(endowmentId, holderName, endowmentType, registrationDate)
+	{
+		this->educationalInstitution = educationalInstitution;
+		this->educationalDivision = educationalDivision;
+	}
+	double calculateEndowment()
+	{
+		double amount=0;
+		if(educationalDivision=="School")
+			amount=30000;
+		else if(educationalDivision=="UnderGraduate")
+			amount=60000;
+		else if(educationalDivision=="PostGraduate")
+			amount=90000;
+		return amount;
+	}
+	
+};
+int main()
+{
+        Endowment *e,*h;
+        string id,name,type,date,ins,divi,center;
+        int age;
+        double amount;
+        cout<<"Enter Endowment Id"<<endl;
+		cin>>id;
+		cout<<"Enter Holder Name"<<endl;
+		cin>>name;
+		cout<<"Enter Endowment Type"<<endl;
+		cin>>type;
+		cout<<"Enter Registration Date"<<endl;
+		cin>>date;
+		if(type=="educational") 
+		{	 	  	    	    		        	 	
+			cout<<"Enter Educational Institution"<<endl;
+			cin>>ins;
+			cout<<"Enter Educational Division"<<endl;
+			cin>>divi;
+			e=new EducationalEndowment(id,name,type,date,ins,divi);
+			amount=e->calculateEndowment();
+			cout<<"Endowment Amount "<<amount<<endl;
+		}
+		
+		else if(type=="health") 
+		{
+			cout<<"Enter Health Care Center"<<endl;
+			cin>>center;
+			cout<<"Enter Holder Age"<<endl;
+			cin>>age;
+			h=new HealthEndowment(id,name,type,date,center,age);
+			amount=h->calculateEndowment();
+			cout<<"Endowment Amount "<<amount<<endl;
+		}
+		
+	return 0;
+}
