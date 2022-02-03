@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+
+int main()   //DO NOT change the 'main' signature
+{
+    char c;
+    int ch;
+    cout << "Enter a character: ";
+    cin >> c;
+    ch = int(c);
+    if(ch>=65&&ch<=122){
+    cout<<c<<"-"<<ch;
+    }
+    else{
+        cout<<"Invalid";
+        
+    }
+}
