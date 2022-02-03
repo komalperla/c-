@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+
+int main()   //DO NOT change the 'main' signature
+{
+    string s;
+    cin>>s;
+    int n=s.length();
+    cout<<"Result:"<<(s[0]-48)*(s[n-1]-48);
+    return 0;
+}
